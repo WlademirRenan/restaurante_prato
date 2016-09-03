@@ -9,7 +9,13 @@
   </head>
 
   <body>
-  <h1>Olá bixo</h1><%= link_to('Sair','/users/sign_out') %>
+  <% if current_user.present? %>
+      <%= current_user.email %>, <%= current_user.id %>, <%= current_user.name %>
+      <%= link_to('Sair', destroy_user_session_path, :method => :delete) %>
+    <% else %>
+      <%= link_to "Cadastrar", new_user_registration_path %>/
+      <%= link_to "Entrar", new_user_session_path %>
+  <% end %>
     <%= yield %>
   </body>
 </html>

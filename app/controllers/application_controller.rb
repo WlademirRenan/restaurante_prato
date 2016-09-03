@@ -1,14 +1,19 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  #before_action :validar_login
   before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def validar_login
-    if current_user.present?
-    #  (acesso normal, deixo o padrao do codigo)
-    else
-      redirect_to '/users/sign_in'
-    end
+  #def configure_permitted_parameters 
+  #  devise_parameter_sanitizer.for(:sign_up) << :name
+  #  devise_parameter_sanitizer.for(:account_update) << :name
+  #end
 
+  protected
+
+  def configure_permitted_parameters
+    added_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+
 end
