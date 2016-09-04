@@ -21,7 +21,7 @@
     <div class="container-fluid">
       <!--<header class="row">-->
       <header class="navbar navbar-fixed-top">
-          <%= render 'layouts/navigation' %>
+        <%= render 'layouts/navigation' %>
       </header>
       <% if current_user %>
         <div id="wrapper">
@@ -30,24 +30,7 @@
       <% end %>
         <!-- Sidebar -->
         <% if current_user %>
-        <div id="sidebar-wrapper">
-          <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-              <a href="#">
-                Módulos MSR
-              </a>
-            </li>
-            <li>
-              <a href="#">Dashboard</a>
-            </li>
-            <li>
-              <a href="#">Dashboard</a>
-            </li>
-            <li>
-              <a href="#">Dashboard</a>
-            </li>
-          </ul>
-        </div>
+          <%= render 'layouts/sidebar' %>
         <% end %>
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
