@@ -2,7 +2,10 @@
   <div class="col-md-3">
     <%= link_to "Home_Logo", root_path, :class => 'brand' %>
   </div>
-  <div class="col-md-9" style="text-align: right;"">
+  <div class="col-md-2">
+    <a href="#menu-toggle" class="btn-sm btn-info" id="menu-toggle">Encolher Menu</a>
+  </div>
+  <div class="col-md-7" style="text-align: right;"">
     <% if current_user.present? %>
       Olá <%= current_user.login.capitalize %>
       &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
