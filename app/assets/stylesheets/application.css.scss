@@ -36,7 +36,8 @@
 .row {
  /*margin-bottom: 20px;*/
 }
-[class*="col-"], header, footer, nav, aside, section, div[role="main"] {
+/*[class*="col-"], header, footer, nav, aside, section, div[role="main"] {*/
+header, footer, nav, aside, section, div[role="main"] {
  padding-top: 15px;
  padding-bottom: 15px;
  border: 1px solid #ddd;
@@ -47,6 +48,8 @@ header {
    background-color: rgba(29,36,46,100);
    text-align: left;
    padding: 10px;
+   color: #fff;
+   padding-right: 30px;
 }
 div[role="main"] {
  background-color: #fff;
