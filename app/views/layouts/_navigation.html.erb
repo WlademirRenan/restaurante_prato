@@ -1,0 +1,9 @@
+<%= link_to "Home_Logo", root_path, :class => 'brand' %>
+<% if current_user.present? %>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  Olá <%= current_user.login.capitalize %>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <% if user_signed_in? %>
+    <%= link_to('Sair', destroy_user_session_path, :method=>'delete') %>        
+  <% end %>
+<% end %>
