@@ -19,14 +19,14 @@
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('../assets/glyphicons-halflings-regular.eot');
-  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
-       url('../assets/glyphicons-halflings-regular.woff') format('woff'), 
-       url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), 
+  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+       url('../assets/glyphicons-halflings-regular.woff') format('woff'),
+       url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
        url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
 /*
- * style.css 
+ * style.css
  */
 .container, .container-fluid {
  padding-right: 15px;
@@ -50,6 +50,7 @@ header {
    padding: 10px;
    color: #fff;
    padding-right: 30px;
+   height: 64px;
 }
 div[role="main"] {
  background-color: #fff;
