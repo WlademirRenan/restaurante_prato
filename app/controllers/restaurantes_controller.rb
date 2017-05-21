@@ -37,7 +37,7 @@ class RestaurantesController < ApplicationController
 
     respond_to do |format|
       if @restaurante.save
-        format.html { redirect_to @restaurante, notice: 'Restaurante was successfully created.' }
+        format.html { redirect_to restaurantes_url, notice: 'Restaurante adicionado.' }
         format.json { render :show, status: :created, location: @restaurante }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class RestaurantesController < ApplicationController
   def update
     respond_to do |format|
       if @restaurante.update(restaurante_params)
-        format.html { redirect_to @restaurante, notice: 'Restaurante was successfully updated.' }
+        format.html { redirect_to restaurantes_url, notice: 'Restaurante atualizado.' }
         format.json { render :show, status: :ok, location: @restaurante }
       else
         format.html { render :edit }
