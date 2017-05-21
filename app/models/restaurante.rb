@@ -1,7 +1,4 @@
 class Restaurante < ApplicationRecord
-  has_many :pratos
+  has_many :pratos, dependent: :destroy
 
-  def before_destroy
-    self.pratos.each{|prato| prato.destroy}
-  end
 end

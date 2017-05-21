@@ -1,5 +1,6 @@
 class PratosController < ApplicationController
   before_action :set_prato, only: [:show, :edit, :update, :destroy]
+  before_action :get_restaurantes, only: [:new, :edit]
 
   # GET /pratos
   # GET /pratos.json
@@ -28,7 +29,7 @@ class PratosController < ApplicationController
 
     respond_to do |format|
       if @prato.save
-        format.html { redirect_to @prato, notice: 'Prato was successfully created.' }
+        format.html { redirect_to pratos_url, notice: 'Prato adicionado.' }
         format.json { render :show, status: :created, location: @prato }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class PratosController < ApplicationController
   def update
     respond_to do |format|
       if @prato.update(prato_params)
-        format.html { redirect_to @prato, notice: 'Prato was successfully updated.' }
+        format.html { redirect_to pratos_url, notice: 'Prato atualizado.' }
         format.json { render :show, status: :ok, location: @prato }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class PratosController < ApplicationController
   def destroy
     @prato.destroy
     respond_to do |format|
-      format.html { redirect_to pratos_url, notice: 'Prato was successfully destroyed.' }
+      format.html { redirect_to pratos_url, notice: 'Prato excluído.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +66,10 @@ class PratosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_prato
       @prato = Prato.find(params[:id])
+    end
+
+    def get_restaurantes
+      @restaurantes = Restaurante.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

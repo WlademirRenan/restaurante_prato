@@ -1,4 +1,5 @@
 <%= form_for(prato) do |f| %>
+  <legend>Dados</legend>
   <% if prato.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(prato.errors.count, "error") %> prohibited this prato from being saved:</h2>
@@ -12,21 +13,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :descricao %>
+    <%= f.label "Restaurante" %>
+    <%= f.select :restaurante_id, @restaurantes.collect { |restaurante| [restaurante.descricao, restaurante.id] } %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Prato" %>
     <%= f.text_field :descricao %>
   </div>
 
   <div class="field">
-    <%= f.label :preco %>
+    <%= f.label "Preço (R$)" %>
     <%= f.text_field :preco %>
   </div>
 
-  <div class="field">
-    <%= f.label :restaurante_id %>
-    <%= f.number_field :restaurante_id %>
-  </div>
-
   <div class="actions">
-    <%= f.submit %>
+    <%= link_to "<i class='fa fa-reply'></i> Cancelar".html_safe, pratos_path, class: 'btn btn-danger'  %>
+    <%= f.submit "Salvar", class: 'btn btn-success' %>
   </div>
 <% end %>
