@@ -12,6 +12,7 @@
  *
  *= require bootstrap.min
  *= require bootstrap-theme.min
+ *= require font-awesome
  *= require_self
  *= require_tree .
  */
@@ -24,6 +25,7 @@
        url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
        url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
+@import "font-awesome";
 
 /*
  * style.css
@@ -195,7 +197,7 @@ div[role="main"] {
     border: none;
 }
 
-a.list-group-item {
+a.list-group-item, .btn.btn-success.white {
     color: #FFF;
 }
 

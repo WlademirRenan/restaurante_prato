@@ -7,6 +7,15 @@ class RestaurantesController < ApplicationController
     @restaurantes = Restaurante.all
   end
 
+  def search
+    if params['busca']
+      @restaurantes = Restaurante.where("descricao ilike '%#{params['busca']}%' ")
+    else
+      @restaurantes = Restaurante.all
+    end
+    render 'index'
+  end
+
   # GET /restaurantes/1
   # GET /restaurantes/1.json
   def show

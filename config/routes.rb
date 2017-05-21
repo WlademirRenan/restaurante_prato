@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :pratos
   resources :restaurantes
+  post 'restaurantes/search', controller: 'restaurantes', action: 'search'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "home#index"

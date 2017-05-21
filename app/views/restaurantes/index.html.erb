@@ -2,21 +2,21 @@
 
 <h1>Restaurantes</h1>
 
-<form>
+<form action="/restaurantes/search" method="post">
   <legend>Filtros</legend>
   <label>Nome</label>
-  <input type="text" placeholder="">
+  <input type="text" placeholder="" name="busca">
   <br>
   <br>
-  <button type="submit" class="btn btn-primary">Enviar</button>
-  <%= link_to "<i class='fa fa-pencil'></i> Cadastrar novo Restaurante".html_safe, new_restaurante_path, class: "btn btn-success" %>
+  <button type="submit" class="btn btn-primary"><i class='fa fa-search'></i> Pesquisar</button>
+  <%= link_to "<i class='fa fa-plus'></i> Cadastrar novo Restaurante".html_safe, new_restaurante_path, class: "btn btn-success white" %>
 </form>
 <br/>
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th></th>
-      <th></th>
+      <th width="10%"></th>
+      <th width="10%"></th>
       <th>Restaurantes</th>
     </tr>
   </thead>
@@ -24,8 +24,8 @@
   <tbody>
     <% @restaurantes.each do |restaurante| %>
       <tr>
-        <td><%= link_to 'Destroy', restaurante, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Edit', edit_restaurante_path(restaurante) %></td>
+        <td><%= link_to "<i class='fa fa-times'></i>".html_safe, restaurante, method: :delete, data: { confirm: 'Você tem certeza que deseja excluir?' } %></td>
+        <td><%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_restaurante_path(restaurante) %></td>
         <td><%= restaurante.descricao %></td>
       </tr>
     <% end %>
@@ -33,5 +33,3 @@
 </table>
 
 <br>
-
-
